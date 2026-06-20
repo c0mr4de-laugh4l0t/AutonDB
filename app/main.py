@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from app.routes import keys, query, auth
 from dotenv import load_dotenv
 
@@ -9,6 +11,12 @@ app = FastAPI(title="AutonDB", version="0.1.0")
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(keys.router, prefix="/keys", tags=["keys"])
 app.include_router(query.router, prefix="/query", tags=["query"])
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/")
+def root():
+    return FileResponse("static/index.html")
 
 @app.get("/health")
 def health():

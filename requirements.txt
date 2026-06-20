@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+chromadb
+sqlcipher3
+python-jose[cryptography]
+passlib[bcrypt]
+ollama
+python-dotenv
+httpx

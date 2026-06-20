@@ -462,9 +462,9 @@ function switchAuthTab(mode) {
     AUTH_MODE = mode;
     document.querySelectorAll('.auth-tab').forEach((t, i) => {
       t.classList.toggle('active', (i === 0 && mode === 'login') || (i === 1 && mode === 'register'));
-    }
+    });
     document.getElementById('email-field').style.display = mode === 'register' ? 'block' : 'none';
-   document.querySelector('.auth-box button.btn-primary').textContent = mode === 'login' ? 'Connect' : 'Create Account';
+    document.querySelector('.auth-box button.btn-primary').textContent = mode === 'login' ? 'Connect' : 'Create Account';
   }
   async function doAuth() {
     const username = document.getElementById('auth-username').value.trim();

@@ -1,8 +1,7 @@
 import os
 import ollama
 from app.db.metadata import search_metadata
-
-RESOLVER_MODEL = os.getenv("RESOLVER_MODEL", "phi3")
+RESOLVER_MODEL = os.getenv("RESOLVER_MODEL", "tinyllama")
 
 def resolve_query(query: str, caller_scope: list[str]) -> str | None:
     candidates = search_metadata(query, scope=caller_scope, top_k=5)
